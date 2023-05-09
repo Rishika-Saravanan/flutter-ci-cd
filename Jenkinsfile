@@ -23,8 +23,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
+                flutter pub outdated
                 flutter pub upgrade --major-versions
-                flutter test --coverage
+                flutter test
                 
                 '''
             }
