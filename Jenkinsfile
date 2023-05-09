@@ -22,7 +22,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "flutter test --coverage"
+                sh '''
+                flutter pub upgrade --major-versions
+                flutter test --coverage
+                
+                '''
             }
             post {
                 always {
